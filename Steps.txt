@@ -1,0 +1,25 @@
+// Auxiliar
+const getOtherContacts = async () => {
+  const names = document.querySelectorAll(
+    "div > div > div > div > div > main > div > div > div > div > ul > li"
+  );
+  return names;
+};
+
+
+// First time
+currentName = "<NAME YOU ARE SCRAPPING";
+nodes[currentName] = [];
+
+
+// Iterative
+contactsProfiles = await getOtherContacts();
+const regex = /Ver el perfil de\s+(.*)\n/;
+for (contact of contactsProfiles) {
+  const string = contact.innerText;
+  if (string.includes("¿Estos")) {
+    continue;
+  }
+  const name = string.match(regex)[1];
+  nodes[currentName].push(name);
+}
